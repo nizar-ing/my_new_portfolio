@@ -88,10 +88,10 @@ export default function DiagonalDrawer({isOpen, setIsOpen, selectedIndex1, setSe
                                </li>
                                <li className="relative group my-4 xl:my-4 2xl:my-6xl">
                                    <div className="relative inline-block">
-                                       <a href="/#hire-me-component" onClick={() => {
+                                       <a href="/#contact-me" onClick={() => {
                                            setSelectedIndex1(3);
                                            setIsOpen(false);
-                                       }}>Hire Me</a>
+                                       }}>Contact Me</a>
                                        {
                                            selectedIndex1 === 3 ? (
                                                <div className="absolute top-2 -left-2 w-full h-full transform-gpu transition-all duration-300 -rotate-6 opacity-100 group-hover:-rotate-6

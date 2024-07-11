@@ -1,10 +1,10 @@
-import {Hind} from 'next/font/google';
 import Image from "next/image";
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import {Hind} from 'next/font/google';
 const hind = Hind({
     subsets: ["latin"],
     weight: ['300', '400', '500', '600', '700']
@@ -12,7 +12,7 @@ const hind = Hind({
 
 export function HomeComponent() {
 
-    var settings = {
+    let settings = {
         infinite: true,
         slidesToShow: 6,
         slidesToScroll: 1,
@@ -100,7 +100,7 @@ export function HomeComponent() {
     return (
         <>
             <div id="home" style={{
-                backgroundImage: 'linear-gradient(110deg, #EEF7FB 0 57%, #48AFDE 0 100%)',
+                backgroundImage: 'linear-gradient(115deg, #EEF7FB 0 57%, #48AFDE 0 100%)',
                 width: '100%',
                 height: '100%',
                 minHeight: '500px',
@@ -117,7 +117,7 @@ export function HomeComponent() {
                                         Hi There!
                                     </p>
                                     <h1 className="text-[#223740] font-recoltaBlack text-5xl mt-5 md:text-5xl md:mt-3 lg:text-7xl xl:text-7xl ">
-                                        I'm Nizar
+                                        I&apos;m Nizar
                                     </h1>
                                     <h2 className={`text-[#223740] font-bold py-2 uppercase md:text-xl ${hind.className}`}>
                                         Full Stack Web Developer &amp; a University Teacher
@@ -130,8 +130,8 @@ export function HomeComponent() {
                                         Projects
                                     </a>
                                     <a
-                                        href="ehizcv.pdf"
-                                        download="Ehiedu Ehizcv.pdf"
+                                        href="#"
+                                        download=""
                                         className={`ml-10 inline-block bg-[#223740] transition-all duration-300 ease-in-out rounded-lg  text-white hover:bg-[#48AFDE] hover:shadow-lg transform hover:-translate-y-1 py-3 md:py-2 lg:py-3 px-5 lg:px-8 md:text-xs lg:text-base font-bold uppercase mt-8 md:mt-5 xl:mt-10 ${hind.className}`}
                                     >
                                         My Resume
@@ -264,7 +264,6 @@ export function HomeComponent() {
                                             width={50}
                                             src="/git.png" alt=""
                                             className="h-12 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 cursor-pointer "/>
-
                                     </Slider>
                                 </div>
                             </div>
@@ -274,4 +273,4 @@ export function HomeComponent() {
             </div>
         </>
     );
-};
+}

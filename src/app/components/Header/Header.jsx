@@ -92,11 +92,11 @@ export function Header() {
                                    className="menu-effect transform opacity-100 -rotate-12 group-hover:-rotate-12 group-hover:opacity-100 "/>
                            ) : <span
                                className="menu-effect transform opacity-0 rotate-12 group-hover:-rotate-12 group-hover:opacity-100 "/>}
-                           <a href="/#hire-me-component"
+                           <a href="/#contact-me"
                               className={`menu-item ${selectedIndex1 === 3 ? "text-black" : ""} text-[#666d47] group-hover:text-black`}
                               onClick={() => setSelectedIndex1(3)}
                            >
-                               Hire Me
+                               Contact Me
                            </a>
                        </li>
                    </ul>
