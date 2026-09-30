@@ -75,6 +75,7 @@ export function Hero() {
               alt="Nizar Ilahi — Senior Full-Stack Engineer"
               width={600}
               height={700}
+              sizes="(max-width: 768px) 90vw, (max-width: 1280px) 55vw, 600px"
               className="max-h-[600px] w-full max-w-md object-contain md:max-w-none"
               priority
             />

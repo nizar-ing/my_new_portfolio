@@ -10,7 +10,7 @@ export function ExperienceTimeline() {
         <div className="relative mb-16">
           <GhostHeading>experience</GhostHeading>
           <div className="-mt-48">
-            <p className="font-display text-4xl font-extrabold text-brand md:text-5xl">Experience</p>
+            <h2 className="font-display text-4xl font-extrabold text-brand md:text-5xl">Experience</h2>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export function ExperienceTimeline() {
         </div>
 
         {/* Education */}
-        <p className="mb-6 font-display text-2xl font-bold text-brand-dark">Education</p>
+        <h3 className="mb-6 font-display text-2xl font-bold text-brand-dark">Education</h3>
         <div className="grid gap-4 sm:grid-cols-2">
           {education.map((deg) => (
             <div key={deg.institution} className="rounded-2xl bg-white px-6 py-5 shadow-sm">

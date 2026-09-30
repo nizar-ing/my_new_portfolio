@@ -8,7 +8,7 @@ export const displayFont = Fraunces({
 
 export const bodyFont = Hind({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-hind',
   display: 'swap',
 });
