@@ -7,14 +7,14 @@ export function Footer() {
   return (
     <footer id="contact" className="relative mt-24">
       {/* Brand-blue CTA card overlapping the dark bar */}
-      <div className="relative z-10 mx-auto -mb-16 max-w-4xl rounded-2xl bg-brand px-8 py-12 text-center text-white shadow-glow">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest opacity-80">
+      <div className="relative z-10 mx-auto -mb-16 max-w-4xl rounded-2xl bg-brand px-8 py-12 text-center text-brand-dark shadow-glow">
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest">
           Let&apos;s work together
         </p>
         <h2 className="mb-6 font-display text-3xl font-black md:text-4xl">
           Have a role or a project in mind?
         </h2>
-        <p className="mx-auto mb-8 max-w-xl text-white/90">
+        <p className="mx-auto mb-8 max-w-xl">
           I&apos;m open to full-time positions and freelance work. Tell me about your team or your
           project and I&apos;ll get back to you within 48 hours.
         </p>
@@ -42,7 +42,7 @@ export function Footer() {
 
         <SocialLinks variant="dark" className="justify-center mb-6" />
 
-        <p className="text-sm text-white/50">
+        <p className="text-sm text-white/60">
           &copy; {new Date().getFullYear()} Nizar Ilahi. All rights reserved.
         </p>
       </div>

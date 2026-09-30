@@ -32,11 +32,11 @@ export function ExperienceTimeline() {
                   <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-display text-lg font-bold text-brand-dark">{role.title}</p>
-                      <p className="text-sm font-semibold text-brand">{role.company}</p>
+                      <p className="text-sm font-semibold text-brand-dark">{role.company}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs font-medium text-ink">{role.period}</p>
-                      <p className="text-xs text-ink/60">{role.location}</p>
+                      <p className="text-xs text-ink">{role.location}</p>
                     </div>
                   </div>
                   <ul className="mt-3 space-y-1.5">
@@ -59,8 +59,8 @@ export function ExperienceTimeline() {
           {education.map((deg) => (
             <div key={deg.institution} className="rounded-2xl bg-white px-6 py-5 shadow-sm">
               <p className="font-display text-base font-bold text-brand-dark">{deg.degree}</p>
-              <p className="mt-0.5 text-sm font-semibold text-brand">{deg.institution}</p>
-              <p className="mt-1 text-xs text-ink/70">{deg.location} · {deg.year}</p>
+              <p className="mt-0.5 text-sm font-semibold text-brand-dark">{deg.institution}</p>
+              <p className="mt-1 text-xs text-ink">{deg.location} · {deg.year}</p>
             </div>
           ))}
         </div>
