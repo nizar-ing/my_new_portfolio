@@ -22,7 +22,7 @@ function ShowcaseInner() {
         <div className="relative">
           <GhostHeading className="px-5 md:pl-12">portfolio</GhostHeading>
           <div className="-mt-52 px-5 pb-6 md:pl-20">
-            <h2 className="font-display text-4xl font-extrabold text-brand md:text-5xl">Recent works</h2>
+            <h2 className="font-display text-4xl font-extrabold text-brand-dark md:text-5xl">Recent works</h2>
             <p className="mt-4 max-w-2xl font-sans text-base leading-8 text-ink">
               A selection of client work, case studies and open-source projects. Each one shows how I
               approach a problem end to end: domain model, API design, security, tests, and an

@@ -10,7 +10,7 @@ export function ExperienceTimeline() {
         <div className="relative mb-16">
           <GhostHeading>experience</GhostHeading>
           <div className="-mt-48">
-            <h2 className="font-display text-4xl font-extrabold text-brand md:text-5xl">Experience</h2>
+            <h2 className="font-display text-4xl font-extrabold text-brand-dark md:text-5xl">Experience</h2>
           </div>
         </div>
 

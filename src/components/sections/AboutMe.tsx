@@ -11,7 +11,7 @@ export function AboutMe() {
         <div className="relative mb-8 pt-8">
           <GhostHeading className="pointer-events-none absolute left-0 top-0 -z-10 w-full">about me</GhostHeading>
           <div className="relative">
-            <h2 className="font-display text-4xl font-extrabold text-brand md:text-5xl">About myself</h2>
+            <h2 className="font-display text-4xl font-extrabold text-brand-dark md:text-5xl">About myself</h2>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-ink">
               I build web systems end to end, and I&apos;ve taught others how to do it.
             </p>

@@ -44,7 +44,7 @@ export function ProjectFilters({ activeCat, basePath = '/#projects' }: ProjectFi
           className={cn(
             'rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2',
             activeCat === value
-              ? 'bg-brand text-white shadow-md'
+              ? 'bg-brand text-brand-dark shadow-md'
               : 'bg-mist text-ink hover:bg-brand/10 hover:text-brand-dark',
           )}
         >

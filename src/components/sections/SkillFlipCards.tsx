@@ -45,7 +45,7 @@ export function SkillFlipCards() {
               aria-pressed={isActive}
               className={`group relative flex aspect-square flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${
                 isActive
-                  ? 'border-brand bg-brand text-white shadow-glow-sm'
+                  ? 'border-brand bg-brand text-brand-dark shadow-glow-sm'
                   : 'border-mist bg-white text-ink hover:border-brand hover:text-brand'
               }`}
             >
@@ -96,7 +96,6 @@ export function SkillFlipCards() {
         <div className="mt-6 flex items-center justify-between border-t border-mist pt-4">
           <button
             onClick={() => go(active - 1)}
-            aria-label="Previous skill"
             className="flex items-center gap-1 text-xs font-medium text-ink transition-colors hover:text-brand focus-visible:outline-none focus-visible:underline"
           >
             <ChevronLeft size={16} aria-hidden="true" />
@@ -104,7 +103,6 @@ export function SkillFlipCards() {
           </button>
           <button
             onClick={() => go(active + 1)}
-            aria-label="Next skill"
             className="flex items-center gap-1 text-xs font-medium text-ink transition-colors hover:text-brand focus-visible:outline-none focus-visible:underline"
           >
             {skillCards[(active + 1) % skillCards.length].title}
