@@ -2,7 +2,7 @@
 
 Personal portfolio of **Nizar Ilahi**, Senior Full-Stack Engineer · Java / Spring Boot & React / Node.js / NestJS.
 
-**Live site → [nizarilahi.dev](https://nizarilahi.dev)** *(update URL after deployment)*
+**Live site → [nizarilahi.dev](https://nizarilahi.dev)**
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
