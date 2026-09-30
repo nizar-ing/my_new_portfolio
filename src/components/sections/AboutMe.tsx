@@ -6,11 +6,11 @@ import { SkillFlipCards } from './SkillFlipCards';
 
 export function AboutMe() {
   return (
-    <section id="about" className="overflow-hidden bg-white py-24">
+    <section id="about" className="overflow-hidden bg-white pb-24">
       <Container>
-        <div className="relative mb-16">
+        <div className="relative mb-8">
           <GhostHeading>about me</GhostHeading>
-          <div className="-mt-48">
+          <div className="-mt-52">
             <h2 className="font-display text-4xl font-extrabold text-brand md:text-5xl">About myself</h2>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-ink">
               I build web systems end to end, and I&apos;ve taught others how to do it.

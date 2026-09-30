@@ -46,7 +46,7 @@ export function Header() {
             {navItems.map(({ id, label }) => {
               const isActive = activeId === id;
               return (
-                <li key={id} className="group relative mr-20 text-2xl font-bold">
+                <li key={id} className="group relative mr-20 text-2xl font-bold whitespace-nowrap">
                   <span
                     className={`menu-effect transform transition-all duration-500 ${
                       isActive

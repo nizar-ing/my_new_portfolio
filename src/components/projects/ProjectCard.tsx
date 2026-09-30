@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const badges = project.stack.slice(0, 4);
 
   return (
-    <div className="group relative mx-auto w-[300px] md:w-[420px] lg:w-[580px]">
+    <div className="group relative mx-auto w-[300px] md:w-[420px] lg:w-[580px] overflow-hidden">
       {/* Shadow card (behind the image, slightly offset) */}
       <div
         className="absolute right-0 top-8 h-[220px] w-full rounded-xl bg-white md:h-[280px] lg:h-[340px]"
