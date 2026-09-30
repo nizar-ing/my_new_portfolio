@@ -5,7 +5,7 @@ import { SocialLinks } from './SocialLinks';
 
 export function Footer() {
   return (
-    <footer className="relative mt-24">
+    <footer id="contact" className="relative mt-24">
       {/* Brand-blue CTA card overlapping the dark bar */}
       <div className="relative z-10 mx-auto -mb-16 max-w-4xl rounded-2xl bg-brand px-8 py-12 text-center text-white shadow-glow">
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest opacity-80">
