@@ -418,17 +418,17 @@ Also:
 
 **Goal:** a real case-study page for every project.
 
-- [ ] `app/projects/[slug]/page.tsx`:
+- [x] `app/projects/[slug]/page.tsx`:
   - `generateStaticParams()` from `projects.ts`; `export const dynamicParams = false`.
   - **Next 15+/16 API:** `params` is a Promise, so use `const { slug } = await params;`. Call `notFound()` when the slug is unknown.
   - `generateMetadata()` provides a per-project title, description and OG image (the cover).
-- [ ] Layout, inspired by edubaba's detail page:
+- [x] Layout, inspired by edubaba's detail page:
   - Hero: the full-width cover with the white blurred `overlay`, the "Project" eyebrow and the title.
   - Two columns on the diagonal mist/white background. **Left (8 cols):** summary → Problem → Solution → **Architecture & highlights** (bullet list) → gallery (`ProjectGallery`, click to open a lightbox dialog). **Right (4 cols, sticky):** context pill, role, year, the **tech stack** badges, the **metrics** tiles, buttons for Live site, GitHub and the second repo, and an "Under NDA, code not public" note when `confidential`.
   - `ProjectPager`: previous and next projects (ordered by `order`), cover image backgrounds with a slate overlay (as in edubaba), wrapping at both ends.
-- [ ] `app/projects/page.tsx`: a grid of all projects with the same filter chips, plus a link to the GitHub profile.
-- [ ] `app/not-found.tsx`: a branded 404 with a link home.
-- [ ] Redirect the legacy `/portfoliodetail/:id` → `/projects` in `next.config.ts`.
+- [x] `app/projects/page.tsx`: a grid of all projects with the same filter chips, plus a link to the GitHub profile.
+- [x] `app/not-found.tsx`: a branded 404 with a link home.
+- [x] Redirect the legacy `/portfoliodetail/:id` → `/projects` in `next.config.ts`.
 
 **Acceptance:** every slug builds statically; previous/next wrap correctly; an unknown slug returns 404; Lighthouse SEO on a detail page = 100.
 **Commit:** `feat(projects): SSG case-study pages with gallery, highlights and pager`
@@ -439,12 +439,12 @@ Also:
 
 **Goal:** a working, spam-resistant contact flow.
 
-- [ ] `app/contact/page.tsx` (edubaba layout): banner ("Contact form" pill, H1 **"Let's work together"**, a sub-line about full-time roles and freelance projects) over a brand-tinted background (**not** `offices.jpg`). Then 3 info cards (Email · Location "Langenhagen, Hannover region" · Availability), then the form.
-- [ ] `ContactForm` (client): name, email, company (optional), subject (select: Full-time role / Freelance project / Other), message. Uses `useActionState` and inline field errors, with a `sonner` toast on success.
-- [ ] `app/actions/contact.ts` (`'use server'`): Zod validation → honeypot field → a simple rate limit (per-IP timestamp map; for real limits use Upstash 🟡 optional) → `lib/mail.ts`.
-- [ ] `lib/mail.ts`: provider chosen by env (`RESEND_API_KEY` **or** `SMTP_HOST`/`SMTP_USER`/`SMTP_PASS`). Send to `CONTACT_TO_EMAIL` with `replyTo` set to the sender. **HTML-escape every user field** (`lib/escape-html.ts`).
-- [ ] `.env.example` with every variable documented; secrets never committed.
-- [ ] Nav "Contact" → `/#contact` scrolls to the footer CTA; the button there goes to `/contact`.
+- [x] `app/contact/page.tsx` (edubaba layout): banner ("Contact form" pill, H1 **"Let's work together"**, a sub-line about full-time roles and freelance projects) over a brand-tinted background (**not** `offices.jpg`). Then 3 info cards (Email · Location "Langenhagen, Hannover region" · Availability), then the form.
+- [x] `ContactForm` (client): name, email, company (optional), subject (select: Full-time role / Freelance project / Other), message. Uses `useActionState` and inline field errors, with a `sonner` toast on success.
+- [x] `app/actions/contact.ts` (`'use server'`): Zod validation → honeypot field → a simple rate limit (per-IP timestamp map; for real limits use Upstash 🟡 optional) → `lib/mail.ts`.
+- [x] `lib/mail.ts`: provider chosen by env (`RESEND_API_KEY` **or** `SMTP_HOST`/`SMTP_USER`/`SMTP_PASS`). Send to `CONTACT_TO_EMAIL` with `replyTo` set to the sender. **HTML-escape every user field** (`lib/escape-html.ts`).
+- [x] `.env.example` with every variable documented; secrets never committed.
+- [x] Nav "Contact" → `/#contact` scrolls to the footer CTA; the button there goes to `/contact`.
 
 **Acceptance:** valid submissions arrive in your inbox; invalid ones show field errors; the honeypot silently drops bots; unit tests cover the action (mock the mail sender).
 **Commit:** `feat(contact): server-action contact form with validation, honeypot and email`
@@ -453,13 +453,13 @@ Also:
 
 ### Phase 8: SEO, performance and accessibility (1 session)
 
-- [ ] `layout.tsx` metadata: `metadataBase` from `NEXT_PUBLIC_SITE_URL`; title template `%s · Nizar Ilahi`; default title "Nizar Ilahi · Senior Full-Stack Engineer (Java/Spring Boot · React · Node.js/NestJS)"; description (≤ 160 chars); keywords; `openGraph`; `twitter`; `alternates.canonical`.
-- [ ] `opengraph-image.tsx` (`next/og`): name, headline, brand gradient, photo.
-- [ ] JSON-LD `Person` (name, jobTitle, address locality Langenhagen / country DE, `sameAs` GitHub and LinkedIn, `knowsAbout` the stack) plus `CreativeWork` on each project page.
-- [ ] `sitemap.ts` (home, `/projects`, every slug, `/contact`) and `robots.ts`.
-- [ ] Images: correct `sizes`, `priority` only on the hero photo, AVIF/WebP.
-- [ ] Fonts: `display: 'swap'`, subset Latin, preload only the display weight.
-- [ ] A11y: one `h1` per page, logical heading order, alt text for every image, visible focus rings (`focus-visible:ring-brand`), colour contrast ≥ 4.5:1 (check `#48AFDE` text on white; use `brand-dark` for small text), `prefers-reduced-motion` respected, skip-to-content link.
+- [x] `layout.tsx` metadata: `metadataBase` from `NEXT_PUBLIC_SITE_URL`; title template `%s · Nizar Ilahi`; default title "Nizar Ilahi · Senior Full-Stack Engineer"; description (≤ 160 chars); keywords; `openGraph`; `twitter`; `alternates.canonical`.
+- [x] `opengraph-image.tsx` (`next/og`): name, headline, brand gradient, stat tiles (no photo — avoids FS read in edge runtime; add once deployed with `NEXT_PUBLIC_SITE_URL`).
+- [x] JSON-LD `Person` (name, jobTitle, address locality Langenhagen / country DE, `sameAs` GitHub and LinkedIn, `knowsAbout` the stack) plus `CreativeWork` on each project page.
+- [x] `sitemap.ts` (home, `/projects`, every slug, `/contact`) and `robots.ts`.
+- [x] Images: correct `sizes` on hero + project cards; `priority` only on hero; AVIF/WebP enabled in next.config.ts.
+- [x] Fonts: `display: 'swap'`, subset Latin; Hind trimmed to 400/500/600/700 (removed 300).
+- [x] A11y: one `h1` per page, `<h2>` section headings (Recent works, About myself, Experience), `<h3>` Education; skip-to-content link in layout; focus rings (`focus-visible:ring-brand`) already on all interactive elements; `prefers-reduced-motion` in globals.css.
 - [ ] Run Lighthouse (mobile) on `/`, one project page and `/contact`; fix anything under target.
 
 **Acceptance:** the §1 Lighthouse targets are met; the Rich Results test validates the Person schema.
@@ -467,7 +467,7 @@ Also:
 
 ---
 
-### Phase 9: Tests and CI (1 session)
+### Phase 9: Tests and CI *(deferred — optional, implement after launch)*
 
 - [ ] **Vitest + RTL** (`vitest.config.ts`, jsdom):
   - `content.schema.test.ts`: every content file parses; slugs are unique; every image path exists on disk; every featured project has ≥ 3 highlights.
@@ -487,8 +487,8 @@ Also:
 
 ### Phase 10: Launch (½ session + manual steps)
 
-- [ ] `README.md`: screenshot, stack badges, features, architecture notes (folder structure, content layer), scripts, env vars, and a link to the live site. It's part of your portfolio too.
-- [ ] Rename the package to `nizar-ilahi-portfolio`.
+- [x] `README.md`: screenshot, stack badges, features, architecture notes (folder structure, content layer), scripts, env vars, and a link to the live site. It's part of your portfolio too.
+- [x] Rename the package to `nizar-ilahi-portfolio`.
 - [ ] Deploy to Vercel: set the env vars and connect the custom domain 🟡 D6. Set `NEXT_PUBLIC_SITE_URL`.
 - [ ] Point the old `nizar-ing-portfolio.netlify.app` at the new domain (Netlify redirect or a note on the page) and update the GitHub profile website field.
 - [ ] Add the portfolio URL to both CVs (the "Portfolio" link in the header) and to LinkedIn.
@@ -559,7 +559,7 @@ export const projects: Project[] = [
       'Vitest + Supertest against a dockerised Postgres, and a Playwright e2e suite covering the four primary user flows',
     ],
     links: { github: 'https://github.com/nizar-ing/clinical-audio-annotation-tool' },
-    cover: { src: '/images/projects/clinannotate/cover.webp', alt: 'ClinAnnotate annotation queue showing queued, in-progress and unpaired recordings' },
+    cover: { src: '/images/projects/clinannotate/cover.png', alt: 'ClinAnnotate annotation queue showing queued, in-progress and unpaired recordings' },
     gallery: [
       { src: '/images/projects/clinannotate/01.webp', alt: 'Modular architecture: Vue 3 SPA, Express 5 API with six bounded contexts, PostgreSQL', caption: 'Modular architecture' },
       { src: '/images/projects/clinannotate/02.webp', alt: 'Pipeline from raw audio and AI transcript to a JSONL gold-standard dataset', caption: 'From raw audio to a gold-standard dataset' },
@@ -657,7 +657,7 @@ export const projects: Project[] = [
       'Jest + Supertest unit and end-to-end tests; class-validator on every request',
     ],
     links: { github: 'https://github.com/nizar-ing/clean-DDD_ecommerce-api' },
-    cover: { src: '/images/projects/clean-ddd-ecommerce-api/cover.webp', alt: 'Layered clean-architecture diagram of the NestJS e-commerce API' },
+    cover: { src: '/images/projects/clean-ddd-ecommerce-api/cover.png', alt: 'Layered clean-architecture diagram of the NestJS e-commerce API' },
   },
   {
     slug: 'clinic-booking-api',
