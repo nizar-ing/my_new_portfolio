@@ -10,27 +10,23 @@ The roadmap is IMPLEMENTATION_PLAN.md. Work one phase at a time and tick its che
 
 **Working directory note:** The repo root (where all `npm` commands run) is `nizar-portfolio/`. If Claude Code is invoked from the parent directory `nextJs_projects/my-portfolio/`, `cd nizar-portfolio` before running any script.
 
-## Current state (mid-migration — Phase 4 done, Phase 5 next)
+## Current state (mid-migration — Phase 5 done, Phase 6 next)
 
 The repo is on branch `feat/portfolio-v2`.
 
-- **Framework:** Next.js 16.3.7, React 19.3.0, Tailwind v4 with `@theme` tokens, `react-slick` (removed in Phase 5)
+- **Framework:** Next.js 16.3.7, React 19.3.0, Tailwind v4 with `@theme` tokens, `embla-carousel-react` (replaced react-slick in Phase 5)
 - **Language:** TypeScript strict throughout `src/` — no `.jsx`/`.js` remain
 - **Content layer:** `src/content/` — `schema.ts` (Zod + TypeScript types), `profile.ts`, `impact.ts`, `skills.ts`, `experience.ts`, `education.ts`, `tech-stack.ts`, `projects.ts` (12 entries: 3 Tier A, 3 Tier B, 6 Tier C), `testimonials.ts` (empty), `navigation.ts`
 - **Design tokens:** `globals.css` has the full `@theme` block (`brand`, `brand-dark`, `ink`, `mist`, `ghost`, `shadow-glow`)
 - **Fonts:** Fraunces (display, `--font-display`) + Hind (body, `--font-hind`) loaded once from `src/lib/fonts.ts`
-- **Components:** all in `src/components/` — `layout/` (Header, NavDrawer, Footer, SocialLinks, ScrollToTop), `sections/` (Hero), `projects/` (ProjectCarousel, ProjectCard), `ui/` (Container, Section, GhostHeading, Button, Badge)
+- **Components:** all in `src/components/` — `layout/` (Header, NavDrawer, Footer, SocialLinks, ScrollToTop), `sections/` (Hero, TechMarquee, ImpactStats, ProjectsShowcase, SkillFlipCards, AboutMe, ExperienceTimeline, Testimonials), `projects/` (ProjectCarousel, ProjectCard, ProjectFilters, TechBadge), `ui/` (Container, Section, GhostHeading, Button, Badge)
 - **Hooks:** `useScrolled`, `useScrollSpy`
 - **Media:** `public/images/projects/<slug>/cover.webp` for all 12 projects; `public/images/profile/nizar-hero.webp` + `nizar-about.webp`; `public/cv/Nizar_Ilahi_CV_EN.pdf`. All template assets and Recoleta fonts deleted.
 - **Scripts:** `scripts/optimize-images.mjs` (sharp, run once to rebuild covers); `scripts/capture-screenshots.mjs` (Playwright, run locally for AllezGoo)
-- **Missing sections:** About, Experience, Contact, project detail pages, tests, CI
-- **Pending manual steps before Phase 5:** run `node scripts/capture-screenshots.mjs` then re-run `node scripts/optimize-images.mjs` to replace the AllezGoo placeholder. Add `docs/images/` to the clinical-audio-annotation-tool repo to replace clinannotate/02.webp and 03.webp placeholders.
+- **Missing:** Contact page, project detail pages (`/projects/[slug]`), tests, CI
+- **Pending manual steps:** run `node scripts/capture-screenshots.mjs` then `node scripts/optimize-images.mjs` to replace the AllezGoo placeholder. Add `docs/images/` to the clinical-audio-annotation-tool repo to replace clinannotate/02.webp and 03.webp placeholders.
 
-Phases 0–4 done. Phase 5 (home page sections) is next.
-
-**Known pre-Phase-5 rule violations in `src/app/page.tsx` (do not "fix" early):**
-- Hardcoded copy string ("Here are a few of my most recent works…") — will move to `src/content/` in Phase 5.
-- Inline `style={{ backgroundImage: 'linear-gradient(110deg, #EEF7FB …)' }}` raw hex — will use a Tailwind token or CSS variable in Phase 5.
+Phases 0–5 done. Phase 6 (project detail pages) is next.
 
 ## Target stack
 

@@ -405,8 +405,8 @@ Section order on `/`:
 
 Also:
 
-- [ ] Replace react-slick everywhere, then uninstall `react-slick` and `slick-carousel`.
-- [ ] Remove all magic `translate(…px)` layout hacks; use negative margins and padding tied to breakpoints, or absolutely positioned decoration.
+- [x] Replace react-slick everywhere, then uninstall `react-slick` and `slick-carousel`.
+- [x] Remove all magic `translate(…px)` layout hacks; use negative margins and padding tied to breakpoints, or absolutely positioned decoration.
 - [ ] Check at 360, 768, 1024, 1440 and 1920 px widths.
 
 **Acceptance:** the home page matches the edubaba structure; all copy comes from `content/`; no layout breaks between 360 and 1920 px; `react-slick` is gone.

@@ -49,10 +49,27 @@ body {
   }
 }
 
-@media (max-width: 640px) {
-  .my-slider {
-    width: 100% !important;
-  }
+/* Hero diagonal split: mist left → brand right, using CSS vars so no raw hex in components */
+.hero-bg {
+  background-image: linear-gradient(115deg, var(--color-mist) 0 57%, var(--color-brand) 0 100%);
+}
+
+/* CSS-only infinite tech marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover,
+.marquee-viewport:has(:focus-visible) .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }
 
 /* Diagonal drawer slide-in animation */
