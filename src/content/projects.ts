@@ -40,8 +40,8 @@ export const projects: Project[] = [
       },
       {
         src: '/images/projects/clinannotate/01.webp',
-        alt: 'ClinAnnotate web application landing page',
-        caption: 'Application interface',
+        alt: 'ClinAnnotate workflow: doctor records dictation, AI produces transcript, annotator corrects and tags spans',
+        caption: 'Annotation workflow',
       },
       {
         src: '/images/projects/clinannotate/02.webp',
@@ -213,7 +213,7 @@ export const projects: Project[] = [
     links: { github: 'https://github.com/nizar-ing/the-wild-oasis' },
     cover: {
       src: '/images/projects/the-wild-oasis/cover.webp',
-      alt: 'Wild Oasis hotel admin dashboard with cabin management table',
+      alt: 'Wild Oasis hotel admin dashboard showing booking metrics, occupancy rate and sales chart',
     },
   },
   {
@@ -237,7 +237,7 @@ export const projects: Project[] = [
     links: { github: 'https://github.com/nizar-ing/E-Shop' },
     cover: {
       src: '/images/projects/e-shop/cover.webp',
-      alt: 'E-Shop product listing page',
+      alt: 'E-Shop product listing with cart, built with React 19 Compiler, TanStack Query and Tailwind v4',
     },
   },
   {
@@ -261,7 +261,7 @@ export const projects: Project[] = [
     links: { github: 'https://github.com/nizar-ing/testing-react-app' },
     cover: {
       src: '/images/projects/testing-react-app/cover.webp',
-      alt: 'Vitest test runner output showing coverage report',
+      alt: 'Vitest test output and coverage report: 10 tests passing, 98 % statement coverage',
     },
   },
   {
@@ -287,7 +287,7 @@ export const projects: Project[] = [
       githubSecondary: 'https://github.com/nizar-ing/angular-students-management',
     },
     cover: {
-      src: '/images/projects/students-management/cover.webp',
+      src: '/images/projects/students-management/cover.png',
       alt: 'Students management dashboard with student list and course assignments',
     },
   },
