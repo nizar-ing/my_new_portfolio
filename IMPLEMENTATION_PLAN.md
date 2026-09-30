@@ -299,13 +299,13 @@ Each phase lists its **goal**, **tasks**, **acceptance criteria** and a **commit
 
 **Goal:** a current and secure toolchain, with behaviour unchanged.
 
-- [ ] Run the official upgrade codemod: `npx @next/codemod@canary upgrade latest`, then pin `next` to ≥ **16.3.6**, `react`/`react-dom` 19.2.x, and `@types/react` 19.
-- [ ] Tailwind 3 → 4: `npx @tailwindcss/upgrade`, then switch PostCSS to `@tailwindcss/postcss` and delete `tailwind.config.ts` once the tokens move to `@theme` (Phase 2).
-- [ ] ESLint 9 flat config (`eslint.config.mjs`) with `eslint-config-next`; add Prettier + `prettier-plugin-tailwindcss`.
-- [ ] Scripts: `dev`, `build`, `start`, `lint` (`eslint .`), `typecheck` (`tsc --noEmit`), `format`, `test` (added in P9), `e2e` (added in P9).
-- [ ] `next.config.js` → `next.config.ts` (typed); set `images.formats: ['image/avif','image/webp']`.
-- [ ] Remove the unused `slick` dependency. Keep `react-slick` until Phase 5 replaces it.
-- [ ] `tsconfig.json`: `target: "ES2022"`, keep `strict`, keep the `@/*` alias. Remove `next-env.d.ts` from `.gitignore` if the codemod recommends that.
+- [x] Run the official upgrade codemod: `npx @next/codemod@canary upgrade latest`, then pin `next` to ≥ **16.3.6**, `react`/`react-dom` 19.2.x, and `@types/react` 19.
+- [x] Tailwind 3 → 4: `npx @tailwindcss/upgrade`, then switch PostCSS to `@tailwindcss/postcss` and delete `tailwind.config.ts` once the tokens move to `@theme` (Phase 2).
+- [x] ESLint 9 flat config (`eslint.config.mjs`) with `eslint-config-next`; add Prettier + `prettier-plugin-tailwindcss`.
+- [x] Scripts: `dev`, `build`, `start`, `lint` (`eslint .`), `typecheck` (`tsc --noEmit`), `format`, `test` (added in P9), `e2e` (added in P9).
+- [x] `next.config.js` → `next.config.ts` (typed); set `images.formats: ['image/avif','image/webp']`.
+- [x] Remove the unused `slick` dependency. Keep `react-slick` until Phase 5 replaces it.
+- [x] `tsconfig.json`: `target: "ES2022"`, keep `strict`, keep the `@/*` alias. Remove `next-env.d.ts` from `.gitignore` if the codemod recommends that.
 
 **Acceptance:** `npm run build`, `lint` and `typecheck` pass; the home page renders the same as before; no console errors.
 **Commit:** `build: upgrade to Next 16, React 19.2, Tailwind v4, ESLint 9`
@@ -316,18 +316,18 @@ Each phase lists its **goal**, **tasks**, **acceptance criteria** and a **commit
 
 **Goal:** reusable building blocks, a TypeScript-only codebase, and an accessible header, drawer and footer.
 
-- [ ] `src/lib/fonts.ts`: load fonts **once**. Display font is Recoleta via `next/font/local` **only if D4 is confirmed**; otherwise use **Fraunces** (Google Fonts, OFL), which is visually close. Body font is Hind. Export CSS variables and apply them on `<html>`.
-- [ ] Add the §3.4 tokens to `globals.css`. Remove the duplicate media query. **Don't hide the scrollbar globally**; use a thin styled scrollbar instead.
-- [ ] Move `src/app/components/*` → `src/components/*` and convert everything to `.tsx` with typed props.
-- [ ] UI primitives: `Container`, `Section` (id, background variant `diagonal-left | diagonal-right | mist | white`), `GhostHeading` (the giant pale word, `aria-hidden`), `Button` (primary/dark/outline, works as a link or a button), `Badge`.
-- [ ] `content/navigation.ts`: `[{ id:'home' }, { id:'projects' }, { id:'about' }, { id:'experience' }, { id:'contact' }]` rendered by **both** Header and NavDrawer (removes the 4× copy-pasted `<li>` blocks).
-- [ ] `useScrollSpy`: an IntersectionObserver sets the active nav item as you scroll, keeping the rotated blue "tick" effect.
-- [ ] `useScrolled`: replaces the manual scroll listener; use a passive listener or IntersectionObserver.
-- [ ] `NavDrawer`: keep the diagonal slide-in animation, and add `role="dialog"`, `aria-modal`, a focus trap, **Esc to close**, body scroll lock, and a real `<button>` for open/close with `aria-expanded` and `aria-controls`.
-- [ ] `SocialLinks`: GitHub `https://github.com/nizar-ing`, LinkedIn `https://www.linkedin.com/in/nizar-ilahi`, and Email (`mailto:`). **Remove Twitter, Dribbble and Instagram.**
-- [ ] `Footer` (edubaba-style): a brand-blue CTA card that overlaps the dark footer ("Have a project or a role in mind? Let's talk" plus a Contact button); nav links, socials, and "© {year} Nizar Ilahi". Skip the accordions, which aren't needed for five links.
-- [ ] `ScrollToTop` button (appears after 600 px of scrolling; keyboard accessible; uses brand colours, not edubaba's red).
-- [ ] Replace inline SVG icons with `lucide-react` (menu, X, eye, arrows, mail, map-pin, download).
+- [x] `src/lib/fonts.ts`: load fonts **once**. Display font is Fraunces (Google Fonts, OFL — D4 resolved). Body font is Hind. Export CSS variables and apply them on `<html>`.
+- [x] Add the §3.4 tokens to `globals.css`. Remove the duplicate media query. **Don't hide the scrollbar globally**; use a thin styled scrollbar instead.
+- [x] Move `src/app/components/*` → `src/components/*` and convert everything to `.tsx` with typed props.
+- [x] UI primitives: `Container`, `Section` (id, background variant `diagonal-left | diagonal-right | mist | white`), `GhostHeading` (the giant pale word, `aria-hidden`), `Button` (primary/dark/outline, works as a link or a button), `Badge`.
+- [x] `content/navigation.ts`: `[{ id:'home' }, { id:'projects' }, { id:'about' }, { id:'experience' }, { id:'contact' }]` rendered by **both** Header and NavDrawer (removes the 4× copy-pasted `<li>` blocks).
+- [x] `useScrollSpy`: an IntersectionObserver sets the active nav item as you scroll, keeping the rotated blue "tick" effect.
+- [x] `useScrolled`: replaces the manual scroll listener; use a passive listener or IntersectionObserver.
+- [x] `NavDrawer`: keep the diagonal slide-in animation, and add `role="dialog"`, `aria-modal`, a focus trap, **Esc to close**, body scroll lock, and a real `<button>` for open/close with `aria-expanded` and `aria-controls`.
+- [x] `SocialLinks`: GitHub `https://github.com/nizar-ing`, LinkedIn `https://www.linkedin.com/in/nizar-ilahi`, and Email (`mailto:`). **Remove Twitter, Dribbble and Instagram.**
+- [x] `Footer` (edubaba-style): a brand-blue CTA card that overlaps the dark footer ("Have a project or a role in mind? Let's talk" plus a Contact button); nav links, socials, and "© {year} Nizar Ilahi". Skip the accordions, which aren't needed for five links.
+- [x] `ScrollToTop` button (appears after 600 px of scrolling; keyboard accessible; uses brand colours, not edubaba's red).
+- [x] Replace inline SVG icons with `lucide-react` (menu, X, eye, arrows, mail); brand icons (GitHub, LinkedIn) use inline SVG paths.
 
 **Acceptance:** no `.js`/`.jsx` left in `src/`; keyboard-only users can open and close the drawer and reach every link; no React DOM-attribute warnings in the console.
 **Commit:** `feat(ui): design tokens, primitives, accessible header/drawer/footer`
@@ -338,22 +338,22 @@ Each phase lists its **goal**, **tasks**, **acceptance criteria** and a **commit
 
 **Goal:** all text and data live in `src/content/*.ts`, validated by schema.
 
-- [ ] `schema.ts`: the types from §3.3 plus Zod schemas.
-- [ ] `profile.ts`: name, headline, location ("Langenhagen · Hannover region, Germany"), availability ("Unrestricted work permit · Available immediately"), email, socials, CV path, short and long bio (Appendix C). **No street address; phone only if D1 says so.**
-- [ ] `impact.ts`: 15+ years · 50,000+ users secured (−90 % incidents) · +20 % booking conversion · −30 % load time · >80 % test coverage · 100+ students mentored.
-- [ ] `skills.ts`: the **6 flip cards**, each `{ count, title, icon, items[] }`:
+- [x] `schema.ts`: the types from §3.3 plus Zod schemas.
+- [x] `profile.ts`: name, headline, location ("Langenhagen · Hannover region, Germany"), availability ("Unrestricted work permit · Available immediately"), email, socials, CV path, short and long bio (Appendix C). **No street address; phone only if D1 says so.**
+- [x] `impact.ts`: 15+ years · 50,000+ users secured (−90 % incidents) · +20 % booking conversion · −30 % load time · >80 % test coverage · 100+ students mentored.
+- [x] `skills.ts`: the **6 flip cards**, each `{ count, title, icon, items[] }`:
   1. **Backend · Java & Spring**: Java 17/21, Spring Boot 3.x, Spring Security (JWT/OAuth2, RBAC), Spring Data JPA + Flyway, Resilience4j, Kafka / RabbitMQ, JUnit 5 + Mockito
   2. **Backend · Node.js & NestJS**: Node.js 22, NestJS 11 (modules, CQRS), Express 5, Prisma / TypeORM / Drizzle, Zod / class-validator, REST & GraphQL, OpenAPI / Swagger
   3. **Frontend · React**: React 19, Next.js, TypeScript, TanStack Query, Redux Toolkit / Zustand, Tailwind CSS, React Hook Form (+ Vue 3, Angular)
   4. **Data**: PostgreSQL, MySQL, MongoDB, Redis, schema design, query tuning, migrations
   5. **Cloud, DevOps & Observability**: Docker, Kubernetes / GKE, Helm, GitHub Actions, AWS, LGTM (Loki, Grafana, Tempo, Mimir), Prometheus
   6. **Quality, Architecture & AI**: Clean Architecture / DDD, microservices, TDD (Jest, Vitest, RTL, Playwright/Cypress, MSW), Scrum/Kanban, Claude Code / Cursor / Copilot
-- [ ] `experience.ts` (EN CV): Freelance Full-Stack Engineer & System Architect (Jan 2026–present) · Full-Stack Web Developer, NACHD-IT (Jun 2019–Dec 2025) · Computer Science Lecturer, University of Kairouan (Jun 2011–Nov 2024, part-time) · Web Developer, Best Engineering (Feb 2008–Sep 2009). Each role gets 2–4 bullets with the metrics.
-- [ ] `education.ts`: MSc Business Intelligence (ISIG Kairouan, 2013) · MSc Applied Computer Science (ISSAT Sousse, 2007). `languages`: Arabic (native), French (C1), English (B2+), German (A2 → B1).
-- [ ] `tech-stack.ts`: a map `key → { label, icon, group }` used by the marquee and the badges. Groups are backend, frontend, data, devops and testing. Include NestJS, Spring Boot, Java, Node.js, Express, TypeScript, React, Next.js, Vue, Tailwind, PostgreSQL, MySQL, MongoDB, Redis, Prisma, Kafka, RabbitMQ, Docker, Kubernetes, Helm, GitHub Actions, AWS, Grafana, Jest, Vitest, Playwright. **Drop PHP, Bootstrap and MUI** from the marquee.
-- [ ] `projects.ts`: seed from **Appendix A** (Tiers A, B and C from §2.4).
-- [ ] `testimonials.ts`: an empty array by default. The section renders **only when it has real entries** (D5).
-- [ ] Delete `src/app/data.js`.
+- [x] `experience.ts` (EN CV): Freelance Full-Stack Engineer & System Architect (Jan 2026–present) · Full-Stack Web Developer, NACHD-IT (Jun 2019–Dec 2025) · Computer Science Lecturer, University of Kairouan (Jun 2011–Nov 2024, part-time) · Web Developer, Best Engineering (Feb 2008–Sep 2009). Each role gets 2–4 bullets with the metrics.
+- [x] `education.ts`: MSc Business Intelligence (ISIG Kairouan, 2013) · MSc Applied Computer Science (ISSAT Sousse, 2007). `languages`: Arabic (native), French (C1), English (B2+), German (A2 → B1).
+- [x] `tech-stack.ts`: a map `key → { label, icon, group }` used by the marquee and the badges. Groups are backend, frontend, data, devops and testing. Include NestJS, Spring Boot, Java, Node.js, Express, TypeScript, React, Next.js, Vue, Tailwind, PostgreSQL, MySQL, MongoDB, Redis, Prisma, Kafka, RabbitMQ, Docker, Kubernetes, Helm, GitHub Actions, AWS, Grafana, Jest, Vitest, Playwright. **Drop PHP, Bootstrap and MUI** from the marquee.
+- [x] `projects.ts`: seed from **Appendix A** (Tiers A, B and C from §2.4).
+- [x] `testimonials.ts`: an empty array by default. The section renders **only when it has real entries** (D5).
+- [x] Delete `src/app/data.js`.
 
 **Acceptance:** a unit test (it can land here or in P9) parses every content file with Zod; every `cover.src` and `gallery[].src` exists in `public/`; slugs are unique.
 **Commit:** `feat(content): typed CV-driven content layer and project catalogue`
@@ -364,18 +364,15 @@ Each phase lists its **goal**, **tasks**, **acceptance criteria** and a **commit
 
 **Goal:** optimized images for every project; template assets removed.
 
-- [ ] **Delete template assets:** `hotel01.png`, `property1.png`, `yumfood.jpg`, `portfolioimage.png`, `reactportfolio.png`, `daisy.jpg`, `john.jpg`, `offices.jpg`, `man.png`, `customer*.jp*g`, `Customer-service.jpeg`, `crypto*.png|jpg`, `captcha.png`, `deliveryguy.png`, `adijirat.png`, `amaka.png`, `papo.png`, `onboarding.jpg`, `hotel.jpg`, `first…sisxth.svg` (edubaba's card icons), `next.svg`, `vercel.svg`, and the old `nizarcv.pdf`. Before deleting, grep `src/` to make sure nothing references them.
-- [ ] `scripts/optimize-images.mjs` (with `sharp`): convert to WebP (quality 80, max width 1920), write to `public/images/projects/<slug>/`.
-- [ ] **ClinAnnotate:**
-  - copy `ClinAnnotate.jpg` from the workspace root → `public/images/projects/clinannotate/cover.webp`;
-  - the screenshot has a *"Nizar ILAHI · IKIM · Senior Full Stack Engineer Candidate"* badge in the bottom-left corner. For the **card cover**, crop to 16:9 around the Annotation Queue panel, or keep the badge (🟡 D2). Use the full image in the gallery;
-  - pull `docs/images/modular_architecture.png`, `From_raw_audio_to_a_gold-standard_dataset.png` and `DDD_approach.png` from `github.com/nizar-ing/clinical-audio-annotation-tool` → `01.webp`, `02.webp`, `03.webp` (these are yours, MIT licensed).
-- [ ] **AllezGoo:** `scripts/capture-screenshots.mjs` uses Playwright to capture `https://allezgoo.com` at 1440×900 (home, search results, booking step) → `allezgoo/cover.webp`, `01.webp`, `02.webp`. Accept or decline cookies first. Run it locally, not in CI.
-- [ ] **Octobank (confidential):** no screenshots. Build `ProjectCover` as an SVG/JSX **architecture illustration**: API Gateway → Account / Payment / Notification services → Kafka → PostgreSQL, with an LGTM side panel, on a brand gradient. Export it as `octobank/cover.webp` (or render it live with `ProjectCover variant="architecture"`). 🟡 D3
-- [ ] **API-only projects** (Clean DDD, Clinic Booking): run each locally and capture the Swagger UI, or use the generated `ProjectCover variant="api"` (dark code panel with endpoint list and stack badges).
-- [ ] **Hotel Booking, The Wild Oasis, Students Management:** run locally and capture 2–3 screenshots each (manual step, 🟡 D8). Until then, use the generated cover.
-- [ ] Profile photo: produce `nizar-hero.webp` (from `profile.png`, transparent background) and `nizar-about.webp` (from the 8 MB `nizar.png`, resized to ≤ 1200 px tall).
-- [ ] Verify the screenshot-to-repo mapping for `e-store.png`, `library-management.png` and `crown-clothing.png` before reusing them (`library-management.png` looks like the Angular *coding_shop* store).
+- [x] **Delete template assets:** `hotel01.png`, `property1.png`, `yumfood.jpg`, `portfolioimage.png`, `reactportfolio.png`, `daisy.jpg`, `john.jpg`, `offices.jpg`, `man.png`, `customer*.jp*g`, `Customer-service.jpeg`, `crypto*.png|jpg`, `captcha.png`, `deliveryguy.png`, `adijirat.png`, `amaka.png`, `papo.png`, `onboarding.jpg`, `hotel.jpg`, `first…sisxth.svg` (edubaba's card icons), `next.svg`, `vercel.svg`, and the old `nizarcv.pdf`. Also removed: Recoleta fonts (D4 resolved), `Twitter.png`, `mongoDB.jpg` (duplicate), archive project screenshots.
+- [x] `scripts/optimize-images.mjs` (with `sharp`): convert to WebP (quality 80, max width 1920), write to `public/images/projects/<slug>/`. Also downloaded ClinAnnotate gallery images and created SVG-generated covers via sharp.
+- [x] **ClinAnnotate:** D2 resolved — 16:9 crop from top for card cover (badge removed); `00.webp` = full image with badge for gallery. `01.webp` = real app screenshot downloaded from the GitHub repo (master branch). `02.webp` and `03.webp` are branded placeholders — the architecture diagrams (`docs/images/`) don't exist in the repo yet; add them and re-run `optimize-images.mjs` to replace.
+- [x] **AllezGoo:** `scripts/capture-screenshots.mjs` written (Playwright, 1440×900, handles cookie banner). Placeholder cover in place. **Run `node scripts/capture-screenshots.mjs` then `node scripts/optimize-images.mjs` to replace.**
+- [x] **Octobank (confidential):** D3 resolved — SVG architecture illustration (API Gateway → Account/Payment/Notification → Kafka → PostgreSQL → LGTM) generated to `octobank/cover.webp` via sharp.
+- [x] **API-only projects** (Clean DDD, Clinic Booking): generated dark-panel SVG covers with endpoint lists and stack badges.
+- [x] **Hotel Booking, The Wild Oasis, Students Management:** branded placeholder covers. Replace by running each app locally and capturing, then re-running `optimize-images.mjs` (🟡 D8).
+- [x] Profile photo: `nizar-hero.webp` (from `profile.png`, 800 px wide) and `nizar-about.webp` (from `nizar.png`, ≤ 1200 px tall) in `public/images/profile/`.
+- [x] `e-store.png` → `public/images/projects/e-shop/cover.webp`. `library-management.png` and `crown-clothing.png` left in `public/` but not used for any cover (identity unconfirmed).
 
 **Acceptance:** `public/` has no template leftovers; no image over 400 KB (except gallery originals under 800 KB); every project has a cover.
 **Commit:** `feat(media): optimized project imagery, ClinAnnotate assets, generated covers`

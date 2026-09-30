@@ -1,0 +1,342 @@
+import type { Project } from './schema';
+
+export const projects: Project[] = [
+  // ── Tier A: Featured ──────────────────────────────────────────────────────
+  {
+    slug: 'clinannotate',
+    title: 'ClinAnnotate',
+    tagline: 'Gold-standard annotation workbench for German clinical dictation',
+    context: 'Case study',
+    role: 'Full-stack engineer (sole developer)',
+    year: '2026',
+    featured: true,
+    order: 1,
+    categories: ['fullstack', 'backend-node'],
+    stack: ['nodejs', 'typescript', 'express', 'prisma', 'postgresql', 'vue', 'zod', 'vitest', 'playwright', 'docker'],
+    summary:
+      'Built for the Institute for AI in Medicine (IKIM), University Hospital Essen. ClinAnnotate turns machine-generated transcripts of German clinical dictations into a gold-standard training dataset: annotators correct the transcript and tag structured spans, and the result is used to measure and fine-tune the speech model.',
+    problem:
+      'A speech model produces a first-pass transcript of each dictation. Turning thousands of those into reliable training data needs a fast, keyboard-driven tool that never loses the original AI output and makes every data-quality rule visible.',
+    solution:
+      'A domain-driven Express 5 API on PostgreSQL (via Prisma) with a Vue 3 SPA, sharing typed contracts through a monorepo package. The domain layer imports no framework code, and a dependency-cruiser rule in the test suite enforces that.',
+    highlights: [
+      'Ingest and filename pairing of audio files and an AI transcript JSON array, with unmatched items surfaced in both directions and nothing dropped silently',
+      'Server-side duration probing (ffprobe); recordings of 15 s or less are auto-rejected, tested at 14.999, 15.000 and 15.001 s',
+      'The original AI transcript is immutable, enforced by a database trigger, and serves as the baseline for word-error-rate (WER)',
+      'Keyboard-driven annotation across six clinical span types, plus per-item recording conditions that can be overridden',
+      'JSONL gold-standard export: both transcripts, WER, typed spans and recording conditions per line',
+      'Vitest + Supertest against a dockerised Postgres, and a Playwright e2e suite covering the four primary user flows',
+    ],
+    links: { github: 'https://github.com/nizar-ing/clinical-audio-annotation-tool' },
+    cover: {
+      src: '/images/projects/clinannotate/cover.webp',
+      alt: 'ClinAnnotate annotation queue showing queued, in-progress and unpaired recordings',
+    },
+    gallery: [
+      {
+        src: '/images/projects/clinannotate/00.webp',
+        alt: 'ClinAnnotate annotation queue — full screenshot with IKIM candidate badge',
+        caption: 'Annotation queue — full view',
+      },
+      {
+        src: '/images/projects/clinannotate/01.webp',
+        alt: 'ClinAnnotate web application landing page',
+        caption: 'Application interface',
+      },
+      {
+        src: '/images/projects/clinannotate/02.webp',
+        alt: 'Modular architecture: Vue 3 SPA, Express 5 API with six bounded contexts, PostgreSQL',
+        caption: 'Modular architecture',
+      },
+      {
+        src: '/images/projects/clinannotate/03.webp',
+        alt: 'Domain-driven design approach used in ClinAnnotate',
+        caption: 'DDD approach',
+      },
+    ],
+  },
+  {
+    slug: 'octobank',
+    title: 'Octobank',
+    tagline: 'Cloud-native microservices for a licensed digital bank',
+    context: 'Client project',
+    role: 'System architect & senior full-stack engineer (freelance)',
+    year: '2026',
+    featured: true,
+    order: 2,
+    categories: ['backend-java'],
+    stack: ['java', 'springboot', 'kafka', 'resilience4j', 'postgresql', 'kubernetes', 'helm', 'grafana'],
+    summary:
+      'Designed a cloud-native microservices architecture for Octobank (octobank.uz), a licensed digital bank in Uzbekistan, on Java 17 and Spring Boot 3.x, deployed to Google Kubernetes Engine.',
+    highlights: [
+      'Kafka as the event backbone: ordered streaming and auditable trails for fintech compliance',
+      'Resilience4j circuit breakers isolate cascading failures between the payment, account and notification services',
+      'End-to-end tracing and logs with the LGTM stack (Loki, Grafana, Tempo, Mimir)',
+      'Zero-downtime deployments on GKE via Helm',
+    ],
+    links: { live: 'https://octobank.uz' },
+    cover: {
+      src: '/images/projects/octobank/cover.webp',
+      alt: 'Architecture sketch: services communicating over Kafka with observability via the LGTM stack',
+    },
+    confidential: true,
+  },
+  {
+    slug: 'allezgoo',
+    title: 'AllezGoo',
+    tagline: 'Live travel booking platform: hotels, trips and e-visas',
+    context: 'Freelance',
+    role: 'Full-stack architect',
+    year: '2026',
+    featured: true,
+    order: 3,
+    categories: ['fullstack', 'frontend', 'backend-node'],
+    stack: ['react', 'typescript', 'tanstack-query', 'tailwind', 'vite', 'nestjs', 'postgresql'],
+    summary:
+      'A full-stack travel platform built with React 19 and NestJS. Visitors search hotels by city and dates, go through a stepped booking flow, browse organised trips and apply for e-visas; staff manage everything from an admin back office.',
+    highlights: [
+      'React 19 concurrent features keep the UI responsive during parallel booking requests',
+      'Modular NestJS architecture lets search, payment and notifications scale independently',
+      'Hardened hotel-inventory API client: in-memory cache (5 min TTL), exponential-backoff retries, request cancellation, per-request timeouts',
+      'TanStack Query tuned to that client, plus server-driven cache invalidation via a response header',
+      'Route-level code splitting, role-based route guards, React Compiler enabled',
+    ],
+    metrics: [{ label: 'Booking conversion', value: '+20 %' }],
+    links: {
+      live: 'https://allezgoo.com',
+      github: 'https://github.com/nizar-ing/allezgo_app_v2',
+    },
+    cover: {
+      src: '/images/projects/allezgoo/cover.webp',
+      alt: 'AllezGoo home page with hotel search',
+    },
+  },
+
+  // ── Tier B: Engineering showcase ─────────────────────────────────────────
+  {
+    slug: 'hotel-booking',
+    title: 'Hotel Booking Platform',
+    tagline: 'Spring Boot 3 REST API + React frontend with JWT security and Stripe',
+    context: 'Open source',
+    featured: true,
+    order: 4,
+    categories: ['fullstack', 'backend-java', 'frontend'],
+    stack: ['java', 'springboot', 'spring-security', 'mysql', 'flyway', 'react', 'vite', 'stripe'],
+    summary:
+      'A complete hotel booking system. The Spring Boot backend handles the full reservation lifecycle (register, search availability, book, confirm by email with a human-readable reference), and the React frontend delivers the guest and admin experience.',
+    highlights: [
+      'Stateless JWT auth through a custom filter ahead of Spring Security, with BCrypt password hashing',
+      'Role-based authorization with @PreAuthorize separating ADMIN and CUSTOMER',
+      'Schema versioned with 13 Flyway migrations; Hibernate runs in validate mode',
+      'Availability-aware room search by date window and room type; room image upload',
+      'Async booking-confirmation emails (@EnableAsync + JavaMailSender), a uniform response envelope and a global exception handler',
+    ],
+    links: {
+      github: 'https://github.com/nizar-ing/Hotel-Booking-App-Backend',
+      githubSecondary: 'https://github.com/nizar-ing/Hotel-Booking-App-Frontend',
+    },
+    cover: {
+      src: '/images/projects/hotel-booking/cover.webp',
+      alt: 'Hotel booking app room search page',
+    },
+  },
+  {
+    slug: 'clean-ddd-ecommerce-api',
+    title: 'Clean DDD E-Commerce API',
+    tagline: 'NestJS 11 with Domain-Driven Design, CQRS and Stripe Checkout',
+    context: 'Teaching',
+    featured: true,
+    order: 5,
+    categories: ['backend-node', 'teaching'],
+    stack: ['nestjs', 'typescript', 'drizzle', 'postgresql', 'mongodb', 'stripe', 'jest'],
+    summary:
+      'A REST API built to show how to structure a NestJS backend around Domain-Driven Design and Clean Architecture. It runs on either PostgreSQL or MongoDB and takes payments through Stripe Checkout.',
+    highlights: [
+      'Commands and queries separated with @nestjs/cqrs',
+      'Framework-independent domain layer; persistence behind repository ports',
+      'Swappable persistence: Drizzle ORM on PostgreSQL, or MongoDB',
+      'Cross-aggregate work via domain events: OrderFulfillmentSaga confirms orders on Stripe webhook events, with no controller in the loop',
+      'Stripe abstracted behind a payment-gateway port; bounded contexts talk through anti-corruption ports',
+      'Jest + Supertest unit and end-to-end tests; class-validator on every request',
+    ],
+    links: { github: 'https://github.com/nizar-ing/clean-DDD_ecommerce-api' },
+    cover: {
+      src: '/images/projects/clean-ddd-ecommerce-api/cover.webp',
+      alt: 'Layered clean-architecture diagram of the NestJS e-commerce API',
+    },
+  },
+  {
+    slug: 'clinic-booking-api',
+    title: 'Clinic Booking Appointments API',
+    tagline: 'Express 5 + Prisma 7 API with RBAC, collision-free booking and reminders',
+    context: 'Open source',
+    featured: true,
+    order: 6,
+    categories: ['backend-node'],
+    stack: ['nodejs', 'express', 'prisma', 'postgresql', 'zod', 'jwt', 'swagger'],
+    summary:
+      'A production-style REST API for clinic appointments: patients browse doctors, services and free slots and book appointments; admins manage the clinic and get aggregated reports.',
+    highlights: [
+      'Double-booking guard: slot availability is checked and the slot is claimed atomically, backed by unique constraints',
+      'JWT auth with role-based access (PATIENT / ADMIN) and an authorize() middleware',
+      'Zod validation on every body and query; central AppError plus Prisma error-code mapping',
+      'Layered rate limiting (global, auth, booking), Helmet, CORS, compression',
+      'X-Request-Id / X-Response-Time tracing in structured logs; a cron job emails reminders 24 h ahead',
+      'OpenAPI 3 docs via swagger-jsdoc + Swagger UI',
+    ],
+    links: { github: 'https://github.com/nizar-ing/Clinic_Booking_Appointments_API' },
+    cover: {
+      src: '/images/projects/clinic-booking-api/cover.webp',
+      alt: 'Swagger UI of the Clinic Booking Appointments API',
+    },
+  },
+
+  // ── Tier C: Frontend and teaching ────────────────────────────────────────
+  {
+    slug: 'the-wild-oasis',
+    title: 'The Wild Oasis',
+    tagline: 'Hotel admin dashboard built with React and Supabase',
+    context: 'Open source',
+    year: '2024',
+    featured: false,
+    order: 7,
+    categories: ['frontend'],
+    stack: ['react', 'typescript', 'tanstack-query', 'supabase', 'react-hook-form', 'recharts', 'styled-components'],
+    summary:
+      'A full-featured internal hotel management dashboard. Staff can manage cabins, bookings and guests, with live check-in and check-out, a dashboard with key metrics, and both light and dark modes.',
+    highlights: [
+      'Real-time data synchronisation via Supabase Postgres triggers and row-level security',
+      'Compound multi-step check-in form with React Hook Form and optimistic UI via TanStack Query',
+      'Recharts dashboard with occupancy rates, stay durations and sales trends over configurable periods',
+      'Dark mode implemented with styled-components ThemeProvider',
+    ],
+    links: { github: 'https://github.com/nizar-ing/the-wild-oasis' },
+    cover: {
+      src: '/images/projects/the-wild-oasis/cover.webp',
+      alt: 'Wild Oasis hotel admin dashboard with cabin management table',
+    },
+  },
+  {
+    slug: 'e-shop',
+    title: 'E-Shop',
+    tagline: 'React 19 e-commerce store with TanStack Query and Tailwind v4',
+    context: 'Open source',
+    year: '2025',
+    featured: false,
+    order: 8,
+    categories: ['frontend'],
+    stack: ['react', 'typescript', 'tanstack-query', 'tailwind', 'react-router', 'vite'],
+    summary:
+      'A modern e-commerce store demonstrating React 19 features: the React Compiler, use(), transitions and optimistic updates, backed by TanStack Query for server-state management.',
+    highlights: [
+      'React Compiler enabled for automatic memoisation — zero manual useMemo / useCallback',
+      'TanStack Query for cart mutations with optimistic updates and automatic cache invalidation',
+      'React Router 7 file-based routing with typed params',
+      'Tailwind v4 @theme tokens for a consistent design system',
+    ],
+    links: { github: 'https://github.com/nizar-ing/E-Shop' },
+    cover: {
+      src: '/images/projects/e-shop/cover.webp',
+      alt: 'E-Shop product listing page',
+    },
+  },
+  {
+    slug: 'testing-react-app',
+    title: 'Testing React Apps',
+    tagline: 'Complete test suite: Vitest, RTL, MSW and Auth0 integration',
+    context: 'Teaching',
+    year: '2024',
+    featured: false,
+    order: 9,
+    categories: ['frontend', 'teaching'],
+    stack: ['react', 'typescript', 'vitest', 'msw', 'redux-toolkit', 'zod', 'auth0'],
+    summary:
+      'A reference project covering the full testing pyramid for a React application: unit tests with Vitest and Testing Library, API mocking with MSW, Redux slice tests, and Auth0 authentication integration tests.',
+    highlights: [
+      'MSW service worker intercepts all API calls; handlers are shared between test and dev environments',
+      'Redux Toolkit slice tests cover reducers, selectors and async thunks in isolation',
+      'Zod schemas validated at the API boundary ensure type safety without runtime overhead',
+      'Auth0 integration tested with a custom renderWithProviders helper that short-circuits the OAuth flow',
+    ],
+    links: { github: 'https://github.com/nizar-ing/testing-react-app' },
+    cover: {
+      src: '/images/projects/testing-react-app/cover.webp',
+      alt: 'Vitest test runner output showing coverage report',
+    },
+  },
+  {
+    slug: 'students-management',
+    title: 'Students Management',
+    tagline: 'Full-stack student management system with Spring Boot and Angular',
+    context: 'Teaching',
+    year: '2024',
+    featured: false,
+    order: 10,
+    categories: ['fullstack', 'backend-java', 'teaching'],
+    stack: ['java', 'springboot', 'spring-security', 'mysql', 'angular'],
+    summary:
+      'A full-stack student management system used as a teaching project: a Spring Boot 3 REST API with JWT security and a responsive Angular 17 frontend built with Angular Material.',
+    highlights: [
+      'Spring Boot 3 REST API with role-based access (ADMIN / STUDENT) via Spring Security',
+      'Flyway-managed MySQL schema with relationships between students, courses and grades',
+      'Angular 17 standalone components and reactive forms with Angular Material',
+      'JWT token refresh flow demonstrated as a teaching example',
+    ],
+    links: {
+      github: 'https://github.com/nizar-ing/springboot-students-management',
+      githubSecondary: 'https://github.com/nizar-ing/angular-students-management',
+    },
+    cover: {
+      src: '/images/projects/students-management/cover.webp',
+      alt: 'Students management dashboard with student list and course assignments',
+    },
+  },
+  {
+    slug: 'world-wise',
+    title: 'WorldWise',
+    tagline: 'Interactive world travel tracker with city pins and geolocation',
+    context: 'Open source',
+    year: '2024',
+    featured: false,
+    order: 11,
+    categories: ['frontend'],
+    stack: ['react', 'typescript', 'react-router', 'react-leaflet'],
+    summary:
+      'A travel tracker where users pin cities they have visited on an interactive Leaflet map, add notes and travel dates, and browse their travel history.',
+    highlights: [
+      'React Leaflet map with click-to-locate geolocation and reverse geocoding via the BigDataCloud API',
+      'React Router 6 nested routes with a split layout (map always visible)',
+      'Context API with useReducer for global city state — no extra dependency',
+      'CSS Modules scoped per component',
+    ],
+    links: { github: 'https://github.com/nizar-ing/world-wise-app' },
+    cover: {
+      src: '/images/projects/world-wise/cover.webp',
+      alt: 'WorldWise app showing a world map with pinned visited cities',
+    },
+  },
+  {
+    slug: 'games-discovery',
+    title: 'Games Discovery',
+    tagline: 'Game search platform with RAWG API, filters and dark mode',
+    context: 'Open source',
+    year: '2024',
+    featured: false,
+    order: 12,
+    categories: ['frontend'],
+    stack: ['react', 'typescript', 'tanstack-query', 'chakra-ui'],
+    summary:
+      'A game discovery platform that queries the RAWG Video Games Database API with filtering by genre, platform and sort order. Built to demonstrate TypeScript, React Query data-fetching patterns and Chakra UI.',
+    highlights: [
+      'TanStack Query with infinite scroll pagination: each page fetches the next cursor from the API',
+      'Search with debounced input wired to the TanStack Query key for automatic re-fetch',
+      'Chakra UI theme extension for dark and light mode with a single toggle',
+      'Strongly typed RAWG API response mapped to domain models via Zod schemas',
+    ],
+    links: { github: 'https://github.com/nizar-ing/Games_Discovery_v2' },
+    cover: {
+      src: '/images/projects/games-discovery/cover.webp',
+      alt: 'Games Discovery app showing a grid of game cards with genre filters',
+    },
+  },
+];

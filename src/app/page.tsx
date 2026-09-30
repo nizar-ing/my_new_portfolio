@@ -1,47 +1,38 @@
-'use client';
-import {HomeComponent} from "@/app/components/Home/HomeComponent";
-
-import {Hind} from 'next/font/google';
-import MySlider from "@/app/components/SliderCard/MySlider";
-
-const hind = Hind({
-    subsets: ["latin"],
-    weight: ['300', '400', '500', '600', '700']
-});
+import { Hero } from '@/components/sections/Hero';
+import ProjectCarousel from '@/components/projects/ProjectCarousel';
+import { GhostHeading } from '@/components/ui/GhostHeading';
+import { Container } from '@/components/ui/Container';
 
 export default function Home() {
-    return (
-        <main className="min-h-screen relative">
-            <HomeComponent/>
-            <div id="portfolio" className="mt-0 -mb-40 pt-5" style={{
-                backgroundImage: "linear-gradient(110deg, #EEF7FB 0 50%, white 0 100%)",
-                width: "100%"
-            }}>
-                <div className="container m-auto">
-                    <p className="text-[300px] text-[#F7FBFD] px-5 md:pl-[50px] w-full max-w-[750px] overflow-hidden"
-                       style={{
-                           transform: "translate(0, -20px)"
-                       }}>
-                        portfolio
-                    </p>
-                    <div style={{transform: "translate(0, -300px)"}}>
-                        <p className="text-[#48AFDE] text-5xl px-5 md:pl-[80px] font-extrabold ">
-                            Recent works
-                        </p>
-                        <p className={`text-[16px] text-[#47626D] leading-8 max-w-2xl mt-5 px-5 md:pl-[80px] ${hind.className}`}>
-                            Here are a few of my most recent works. As a web designer and full-stack web developer, I
-                            constantly prioritise 100% client satisfaction. I always enjoy working on my projects, so
-                            each one is a new adventure for me. While working on each new project, I attempt to learn
-                            new things. As a result, my paintings are always current and one-of-a-kind.
-                        </p>
-                    </div>
-                </div>
-                <div
-                    style={{transform: "translate(0px,-240px)"}}
-                >
-                    <MySlider/>
-                </div>
+  return (
+    <main className="min-h-screen">
+      <Hero />
+
+      {/* Portfolio section */}
+      <section
+        id="projects"
+        className="mt-0 w-full pt-5"
+        style={{ backgroundImage: 'linear-gradient(110deg, #EEF7FB 0 50%, white 0 100%)' }}
+      >
+        <Container>
+          <div className="relative">
+            <GhostHeading className="px-5 md:pl-[50px]">portfolio</GhostHeading>
+            {/* Overlay the real heading on top of the ghost text */}
+            <div className="-mt-52 px-5 pb-8 md:pl-[80px]">
+              <p className="text-5xl font-extrabold text-brand">Recent works</p>
+              <p className="mt-5 max-w-2xl font-sans text-base leading-8 text-ink">
+                Here are a few of my most recent works. As a web designer and full-stack web
+                developer, I constantly prioritise 100% client satisfaction. I always enjoy working
+                on my projects, so each one is a new adventure for me.
+              </p>
             </div>
-        </main>
-    )
+          </div>
+        </Container>
+
+        <div className="-mt-8 pb-16">
+          <ProjectCarousel />
+        </div>
+      </section>
+    </main>
+  );
 }

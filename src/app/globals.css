@@ -1,69 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  --color-brand:      #48afde;
+  --color-brand-dark: #223740;
+  --color-ink:        #47626d;
+  --color-mist:       #eef7fb;
+  --color-mist-2:     #e0f3fd;
+  --color-ghost:      #f7fbfd;
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-sans:    var(--font-hind), ui-sans-serif, system-ui, sans-serif;
+  --shadow-glow:    -10px 25px 50px 10px rgb(72 175 222 / 0.9);
+  --shadow-glow-sm: -10px 10px 20px 10px rgb(72 175 222 / 0.9);
+}
 
-/* Global css */
-
-:root {
---foreground-rgb: 0, 0, 0;
---background-start-rgb: 214, 219, 220;
---background-end-rgb: 255, 255, 255;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-color: rgb(var(--foreground-rgb));
-font-family: 'Recoleta', sans-serif;
-}
-/*responsible for the blue tick when a link is clicked */
-.menu-effect{
-left: -0.75rem;
-top: 0.125rem;
-z-index: -10;
-height: 2rem;
-width: 2rem;
-border-radius: 0.5rem;
-background-color: #48AFDE;
-transition-duration: .5s;
-position: absolute;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
 }
 
-/*this one here is responsible for the smooth scroll*/
-html {
-scroll-behavior: smooth;
-}
-/* we dnt wanna use webkit scrollbar on a production website  */
-::-webkit-scrollbar {
-display: none;
+/* Blue rotated tick shown on the active/hovered nav item */
+.menu-effect {
+  left: -0.75rem;
+  top: 0.125rem;
+  z-index: -10;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 0.5rem;
+  background-color: #48afde;
+  transition-duration: 0.5s;
+  position: absolute;
 }
 
-/*portfolio deytails overlay background */
+/* Portfolio detail overlay background */
 .overlay {
-position: absolute;
-left: 0;
-width: 100%;
-/*/_ height: 100%; _/*/
-/*/_ z-index: 10; _/*/
-background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
-backdrop-filter: blur(4px); /*/_ Add blur effect _/*/
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(4px);
 }
 
-@media screen and (max-width:900px) {
-
-.ground-color-change{
-background: linear-gradient(90deg, rgba(238,247,251,1) 55%, rgba(255,255,255,1) 55%);
-}
-}
-
-@media (max-width:640px) {
-.my-slider{
-width: 100% !important;
-}
+@media screen and (max-width: 900px) {
+  .ground-color-change {
+    background: linear-gradient(90deg, rgba(238, 247, 251, 1) 55%, rgba(255, 255, 255, 1) 55%);
+  }
 }
 
-@media (max-width:640px) {
-.my-slider{
-width: 100% !important;
-}
+@media (max-width: 640px) {
+  .my-slider {
+    width: 100% !important;
+  }
 }
 
+/* Diagonal drawer slide-in animation */
+.diagonal-drawer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  transform-origin: top right;
+  transform: translate(-100%, -100%);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.diagonal-drawer.open {
+  transform: translate(0, 0);
+}
