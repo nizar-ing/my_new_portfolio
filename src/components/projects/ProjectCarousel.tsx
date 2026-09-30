@@ -72,10 +72,14 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
               aria-selected={i === selectedSnap}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => emblaApi?.scrollTo(i)}
-              className={`h-2.5 w-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 ${
-                i === selectedSnap ? 'w-6 bg-brand' : 'bg-brand/30 hover:bg-brand/60'
-              }`}
-            />
+              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
+            >
+              <span
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  i === selectedSnap ? 'w-6 bg-brand' : 'w-2.5 bg-brand/30 hover:bg-brand/60'
+                }`}
+              />
+            </button>
           ))}
         </div>
 

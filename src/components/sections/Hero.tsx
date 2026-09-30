@@ -47,7 +47,7 @@ export function Hero() {
               <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start xl:mt-10">
                 <Link
                   href="/#projects"
-                  className="inline-block rounded-lg bg-brand px-6 py-3 text-sm font-bold uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                  className="inline-block rounded-lg bg-brand px-6 py-3 text-sm font-bold uppercase text-brand-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
                 >
                   See my work
                 </Link>

@@ -43,7 +43,6 @@ export function SkillFlipCards() {
                 if (e.key === 'ArrowLeft') go(i - 1);
               }}
               aria-pressed={isActive}
-              aria-label={card.title}
               className={`group relative flex aspect-square flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${
                 isActive
                   ? 'border-brand bg-brand text-white shadow-glow-sm'

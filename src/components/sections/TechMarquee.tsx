@@ -63,7 +63,7 @@ function TechLogo({ label, Icon, color }: TechItem) {
         style={{ color }}
         aria-hidden="true"
       />
-      <span className="text-xs text-ink/60 transition-colors group-hover:text-ink">{label}</span>
+      <span className="text-xs text-ink">{label}</span>
     </div>
   );
 }
