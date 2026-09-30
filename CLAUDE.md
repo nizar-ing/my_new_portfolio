@@ -97,6 +97,12 @@ Named CSS classes defined in `globals.css` — use these, don't recreate them:
 - `.menu-effect` — the rotated blue square behind the active nav item
 - `.overlay` — white blurred overlay used on the project detail hero
 - `.ground-color-change` — responsive section background flip at ≤ 900 px
+- `.marquee-track` / `.marquee-viewport` — CSS-only infinite tech marquee; pauses on hover/focus; respects `prefers-reduced-motion`
+- `.diagonal-drawer` / `.diagonal-drawer.open` — the full-screen nav drawer slide-in animation
+
+## Zod
+
+The project uses **Zod v4** (`"zod": "^4.6.5"`). The v4 API has breaking changes from v3: `z.string().email()` error messages changed, `z.object` strict mode syntax differs, and `z.infer` is still the correct inference helper. Do not apply v3 patterns.
 
 ## Icons
 

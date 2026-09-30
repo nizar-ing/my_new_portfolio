@@ -9,7 +9,7 @@ export function AboutMe() {
     <section id="about" className="overflow-hidden bg-white pb-24">
       <Container>
         <div className="relative mb-8 pt-8">
-          <GhostHeading className="pointer-events-none absolute left-0 top-0 w-full">about me</GhostHeading>
+          <GhostHeading className="pointer-events-none absolute left-0 top-0 -z-10 w-full">about me</GhostHeading>
           <div className="relative">
             <h2 className="font-display text-4xl font-extrabold text-brand md:text-5xl">About myself</h2>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-ink">
