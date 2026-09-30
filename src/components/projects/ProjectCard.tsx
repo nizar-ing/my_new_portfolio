@@ -46,6 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={project.cover.alt}
             width={580}
             height={326}
+            sizes="(max-width: 640px) 300px, (max-width: 1024px) 480px, 660px"
             className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
           {/* Eye overlay on hover */}

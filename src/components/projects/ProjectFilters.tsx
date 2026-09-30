@@ -16,9 +16,11 @@ const FILTERS: { label: string; value: string }[] = [
 
 interface ProjectFiltersProps {
   activeCat: string;
+  /** URL prefix to push when a filter is selected. Defaults to '/#projects' (home showcase). */
+  basePath?: string;
 }
 
-export function ProjectFilters({ activeCat }: ProjectFiltersProps) {
+export function ProjectFilters({ activeCat, basePath = '/#projects' }: ProjectFiltersProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -27,9 +29,9 @@ export function ProjectFilters({ activeCat }: ProjectFiltersProps) {
       const params = new URLSearchParams(searchParams.toString());
       if (value) params.set('cat', value);
       else params.delete('cat');
-      router.replace(`/#projects${params.toString() ? '?' + params.toString() : ''}`, { scroll: false });
+      router.replace(`${basePath}${params.toString() ? '?' + params.toString() : ''}`, { scroll: false });
     },
-    [router, searchParams],
+    [router, searchParams, basePath],
   );
 
   return (
