@@ -3,3 +3,6 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+# Plugin-specific user files
+/dbnavigator.xml
+/material_theme_project_new.xml

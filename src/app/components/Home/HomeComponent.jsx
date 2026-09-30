@@ -120,7 +120,7 @@ export function HomeComponent() {
                                         I&apos;m Nizar
                                     </h1>
                                     <h2 className={`text-[#223740] font-bold py-2 uppercase md:text-xl ${hind.className}`}>
-                                        Full Stack Web Developer &amp; a University Teacher
+                                        Full Stack Engineer &amp; a University Teacher
                                     </h2>
 
                                     <a
