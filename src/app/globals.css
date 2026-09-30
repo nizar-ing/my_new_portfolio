@@ -36,12 +36,6 @@ body {
 ::-webkit-scrollbar-thumb  { background: var(--color-brand); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-dark); }
 
-/* Hero image fade — softens the bottom of a photo with a non-transparent background */
-.hero-img-mask {
-  mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
-}
-
 /* Blue rotated tick shown on the active/hovered nav item */
 .menu-effect {
   left: -0.75rem;

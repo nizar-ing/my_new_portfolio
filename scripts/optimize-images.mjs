@@ -217,29 +217,24 @@ async function run() {
   console.log('\n=== optimize-images.mjs ===\n');
 
   // ── Profile photos ──────────────────────────────────────────────────────────
+  const profileSrc = join(PUBLIC, 'profile.png');
+  if (await exists(profileSrc)) {
+    await toWebP(profileSrc, join(PUBLIC, 'images/profile/nizar-hero.webp'), { width: 800 });
+  } else {
+    console.warn('⚠  public/profile.png not found — skipping nizar-hero.webp');
+  }
+
   const nizarSrc = join(WORKSPACE, 'nizar.png');
   if (await exists(nizarSrc)) {
+    // resize to max 1200 px tall, preserve ratio
     await ensureDir(join(PUBLIC, 'images/profile'));
-    const meta = await sharp(nizarSrc).metadata();
-    const origH = meta.height ?? 1200;
-
-    // Hero: portrait crop keeping the top 72 % (face + upper body); resize to 600 px wide
-    const heroHeight = Math.round(origH * 0.72);
-    await sharp(nizarSrc)
-      .extract({ left: 0, top: 0, width: meta.width ?? 600, height: heroHeight })
-      .resize({ width: 600, withoutEnlargement: true })
-      .webp({ quality: 88 })
-      .toFile(join(PUBLIC, 'images/profile/nizar-hero.webp'));
-    console.log('✓ public/images/profile/nizar-hero.webp  (face-focused crop from nizar.png)');
-
-    // About: full portrait, resize to max 1200 px tall, preserve ratio
     await sharp(nizarSrc)
       .resize({ height: 1200, withoutEnlargement: true })
       .webp({ quality: Q })
       .toFile(join(PUBLIC, 'images/profile/nizar-about.webp'));
     console.log('✓ public/images/profile/nizar-about.webp');
   } else {
-    console.warn('⚠  ../nizar.png not found — skipping profile images');
+    console.warn('⚠  ../nizar.png not found — skipping nizar-about.webp');
   }
 
   // ── ClinAnnotate ────────────────────────────────────────────────────────────
