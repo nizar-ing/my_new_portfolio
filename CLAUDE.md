@@ -10,7 +10,7 @@ The roadmap is IMPLEMENTATION_PLAN.md. Work one phase at a time and tick its che
 
 **Working directory note:** The repo root (where all `npm` commands run) is `nizar-portfolio/`. If Claude Code is invoked from the parent directory `nextJs_projects/my-portfolio/`, `cd nizar-portfolio` before running any script.
 
-## Current state (Phase 9 deferred — Phase 10 Launch is next)
+## Current state (Phase 10 Launch — in progress)
 
 The repo is on branch `feat/portfolio-v2`.
 
@@ -30,6 +30,8 @@ The repo is on branch `feat/portfolio-v2`.
 - **Pending manual steps:** run `node scripts/capture-screenshots.mjs` then `node scripts/optimize-images.mjs` to replace the AllezGoo placeholder. Add `docs/images/` to the clinical-audio-annotation-tool repo to replace clinannotate/02.webp and 03.webp placeholders. Set `CONTACT_TO_EMAIL` + `RESEND_API_KEY` (or SMTP vars) in `.env`. Set `NEXT_PUBLIC_SITE_URL` before deploying.
 
 Phases 0–8 done. Phase 9 (tests + CI) is **deferred** — skip to Phase 10 (Launch).
+
+**Phase 10 remaining steps:** deploy to Vercel (`nizarilahi.dev`), set `NEXT_PUBLIC_SITE_URL` + contact env vars, update LinkedIn and both CVs with the live URL, merge `feat/portfolio-v2` → `main`, tag `v2.0.0`.
 
 ## Target stack
 
@@ -108,3 +110,13 @@ The project uses **Zod v4** (`"zod": "^4.6.5"`). The v4 API has breaking changes
 
 - **UI icons** — `lucide-react` (menu, X, arrows, mail, eye, chevrons)
 - **Tech/brand logos** — `react-icons/si` (SimpleIcons, e.g. `SiReact`, `SiSpring`); fall back to PNG in `public/` for logos not in SimpleIcons
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

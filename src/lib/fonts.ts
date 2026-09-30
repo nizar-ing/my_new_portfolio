@@ -1,4 +1,4 @@
-import { Fraunces, Hind } from 'next/font/google';
+import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google';
 
 export const displayFont = Fraunces({
   subsets: ['latin'],
@@ -6,9 +6,9 @@ export const displayFont = Fraunces({
   display: 'swap',
 });
 
-export const bodyFont = Hind({
+export const bodyFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-hind',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-body',
   display: 'swap',
 });

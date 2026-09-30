@@ -8,7 +8,7 @@
   --color-mist-2:     #e0f3fd;
   --color-ghost:      #f7fbfd;
   --font-display: var(--font-display), ui-serif, Georgia, serif;
-  --font-sans:    var(--font-hind), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --shadow-glow:    -10px 25px 50px 10px rgb(72 175 222 / 0.9);
   --shadow-glow-sm: -10px 10px 20px 10px rgb(72 175 222 / 0.9);
 }
@@ -19,6 +19,27 @@ html {
 
 body {
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Brand-coloured text selection */
+::selection {
+  background-color: var(--color-mist-2);
+  color: var(--color-brand-dark);
+}
+
+/* Thin branded scrollbar (WebKit / Blink) */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: var(--color-ghost); }
+::-webkit-scrollbar-thumb  { background: var(--color-brand); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-dark); }
+
+/* Hero image fade — softens the bottom of a photo with a non-transparent background */
+.hero-img-mask {
+  mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
 }
 
 /* Blue rotated tick shown on the active/hovered nav item */

@@ -69,14 +69,14 @@ export function Hero() {
           </div>
 
           {/* ── Right: profile photo ──────────────────────────── */}
-          <div className="col-span-12 flex items-end justify-center bg-[#D9EEF7] pt-10 md:col-span-7 md:bg-transparent md:pt-28 lg:pt-20">
+          <div className="col-span-12 flex items-end justify-center bg-[#D9EEF7] pt-10 md:col-span-7 md:bg-transparent md:pt-16 lg:pt-8">
             <Image
               src="/images/profile/nizar-hero.webp"
               alt="Nizar Ilahi — Senior Full-Stack Engineer"
               width={600}
-              height={700}
+              height={720}
               sizes="(max-width: 768px) 90vw, (max-width: 1280px) 55vw, 600px"
-              className="max-h-[600px] w-full max-w-md object-contain md:max-w-none"
+              className="hero-img-mask max-h-165 w-full max-w-sm object-cover object-top md:max-w-none"
               priority
             />
           </div>
